@@ -13,6 +13,15 @@ const app = express();
 app.use(cors()); // Allow all origins for easier testing/evaluation
 app.use(express.json());
 
+// Welcome Route
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Finance Data Processing API is live!',
+    version: '1.0.0'
+  });
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/records', recordRoutes);
